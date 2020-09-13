@@ -4,15 +4,12 @@ let socket = io("http://localhost:3000");
 
 socket.on("message", function(data) {
     console.log(data);
-    console.log(socket.id);
 });
 
 document.addEventListener("keydown", function(event) {
-    switch (event.keyCode) {
-        // Space bar is equivalent to buzzer press
-        case 33:
-          socket.emit("buzz", socket.id);
-          break;
+    // Check to see if the "buzzer" has been pressed (the space bar)
+    if (event.keyCode === 32) {
+      socket.emit("buzz", socket.id);
     }
 });
 

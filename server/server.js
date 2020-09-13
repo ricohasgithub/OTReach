@@ -8,13 +8,9 @@ socketio.on("connection", socket => {
 
     // Listen for buzzes
     socket.on("buzz", data => {
-        // Lock the room
-        
+        // Lock the room and output the name of the person who first buzzed
+        socketio.emit("message", data);
     });
-
-    setInterval(function () {
-        socketio.emit("message", "Hello world");
-    }, 1000);
 
 });
 
