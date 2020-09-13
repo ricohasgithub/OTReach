@@ -2,25 +2,16 @@
 class Player {
 
     // Default constructor
-    constructor (name, socketID) {
+    constructor (name, socketID, teamID) {
 
         // Assign instance variables to class arguments
         this.name = name;
         this.socketID = socketID;
 
-        // Create new instance variables
-        this.indvScore = 0;
-        this.teamID = 0;
-
-    }
-
-    // Assigned team constructor
-    constructor (name, socketID, team) {
-
-        // Assign instance variables to class arguments
-        this.name = name;
-        this.socketID = socketID;
-        this.teamID = teamID;
+        // Check to see if a team is manually assigned or still waiting for assignment
+        if (!teamID === 0) {
+            this.teamID = teamID;
+        }
 
         // Create new instance variables
         this.indvScore = 0;
